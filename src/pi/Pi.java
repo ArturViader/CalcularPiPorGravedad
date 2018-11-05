@@ -29,7 +29,7 @@ public class Pi {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Valor de pi en java " + Math.PI);
-        System.out.println("Calculando pi:");     
+        System.out.println("Calculando pi:");
         nilakantha();
         bailey();
         System.out.println("Calulando por método propio gravitatorio. Espera por favor.");
@@ -46,7 +46,7 @@ public class Pi {
             pi = pi + (4 / (numero * (numero + 1) * (numero + 2)) - 4 / ((numero + 2) * (numero + 3) * (numero + 4)));
             numero = numero + 4;
             cont++;
-            
+
         } while (cont < max);
         System.out.println("Calculado por nilakantha " + pi);
         System.out.println("Se han hecho 100 ejecuciones. Cuantas más más se aproxima.");
@@ -133,12 +133,11 @@ public class Pi {
         gravedadx = 1;
         gravedady = 1;
 
-        
         ancho = ancho * 1000;
         alto = alto * 1000;
         radiox = radiox * 1000;
-        radioy = radioy *1000;
-        
+        radioy = radioy * 1000;
+
         centrox = alto / 2;
         centroy = ancho / 2;
 
@@ -153,73 +152,64 @@ public class Pi {
         boolean primera = true;
         boolean iniciay = false;
         boolean mediacircunferencia = false;
-        boolean circunferenciacompleta=false;
-        int cuentavueltas=0;
+        boolean circunferenciacompleta = false;
+        int cuentavueltas = 0;
         int cont = 0;
         double pi;
         double piantiguo;
         medio = 0;
         double recorrido = 0;
-        double freno=0;
-        int vueltas=0;
-        piantiguo=0;
+        double freno = 0;
+        double frenodos = 0;
+        boolean aplicafrenodos = false;
+        int vueltas = 0;
+        piantiguo = 0;
         do {
-            
+
             if (!iniciay) {
-                
-                
-                
-                
-                
+
                 if (puntox >= centrox) {
-                      if(puntox==centrox)
-                      {
-                          System.out.println("Clavado");
-                          System.out.println("Centrox " + centrox + "Puntox " + puntox + "Puntoy "+ puntoy);
-                      }
+                    if (puntox == centrox) {
+                        System.out.println("Clavado");
+                        System.out.println("Centrox " + centrox + "Puntox " + puntox + "Puntoy " + puntoy);
+                    }
                     iniciay = true;
                     System.out.println("Puntox " + puntox + " Centrox " + centrox);
                     listax.add(puntox);
                     listay.add(puntoy);
-                }          
+                }
             } else {
                 if (!mediacircunferencia) {
                     if (puntox <= centrox) {
                         mediacircunferencia = true;
-                        circunferenciacompleta=false;
-                     /*   System.out.println("El recorrido es" + recorrido);
+                        circunferenciacompleta = false;
+                        /*   System.out.println("El recorrido es" + recorrido);
                         System.out.println("Pi es " + ((recorrido / (2 * radiox))) * 2);*/
-                    
 
                     }
                 } else {
-                    if (!circunferenciacompleta) {                       
+                    if (!circunferenciacompleta) {
                         if (puntox >= centrox) {
-                            if(puntox==centrox)
-                            {
+                            if (puntox == centrox) {
                                 System.out.println("Clavado pi");
-                              
+
                             }
                             vueltas++;
-                          circunferenciacompleta=true;
-                          mediacircunferencia = false;
-                  //          System.out.println("El recorrido es" + recorrido + "Circunferencia completa");
-                            
-                            
-                            pi= (((recorrido/vueltas) / (2 * radiox)));
+                            circunferenciacompleta = true;
+                            mediacircunferencia = false;
+                            //          System.out.println("El recorrido es" + recorrido + "Circunferencia completa");
+
+                            pi = (((recorrido / vueltas) / (2 * radiox)));
                             System.out.println(pi);
-                            if(cuentavueltas<0)
-                            {
+                            if (cuentavueltas < 0) {
                                 cuentavueltas++;
-                            }
-                            else
-                            {
-                                cuentavueltas=0;
-                                System.out.println("Calculado con sistema gravitatorio. Invento Artur Viader. Pi es " + pi );
+                            } else {
+                                cuentavueltas = 0;
+                                System.out.println("Calculado con sistema gravitatorio. Invento Artur Viader. Pi es " + pi);
                                 System.out.println("El valor se aproxima mucho. Cuantas más vueltas al círculo se dan más se aproxima. También cuanto menor es la fuerza gravitatoria.");
-                                sal=true;
+                                sal = true;
                             }
-                            
+
                             /*if(pi==piantiguo)
                             {
                                 sal=true;
@@ -230,122 +220,100 @@ public class Pi {
                                 piantiguo = pi;
                                
                             }*/
-                            
                         }
-                      
+
                     }
 
                 }
 
             }
-            
-            
-            
-            
+
             if (puntox > centrox) {
-                if(freno>0)
-                {
-                    velocidadx -= ((puntox - centrox) / 10000000000000.0)*freno;    
+                if (freno > 0) {
+                    velocidadx -= ((puntox - centrox) / 10000000000000.0) * freno;
+                } else {
+                    velocidadx -= ((puntox - centrox) / 10000000000000.0);
                 }
-                else
-                {
-                    velocidadx -= ((puntox - centrox) / 10000000000000.0);    
-                }
-                
+
                 if (!puestohaciendo) {
                     haciendo = true;
                     puestohaciendo = true;
                 }
 
             } else if (puntox < centrox) {
-                if(freno>0)
-                {
-                    velocidadx += ((centrox - puntox) / 10000000000000.0)*freno;
-                }
-                else
-                {
+                if (freno > 0) {
+                    velocidadx += ((centrox - puntox) / 10000000000000.0) * freno;
+                } else {
                     velocidadx += ((centrox - puntox) / 10000000000000.0);
                 }
-                
+
             } else {
                 haciendo = true;
                 puestohaciendo = true;
             }
 
-             if(!iniciay)
-                {
-                    if(puntox+velocidadx>centrox)
-                    {
-                        freno = puntox+velocidadx-centrox;
-                        freno = freno/velocidadx;
-                        freno = 1- freno;
-                        System.out.println("Puesto freno");
-                    }
+            if (!iniciay) {
+                if (puntox + velocidadx > centrox) {
+                    freno = puntox + velocidadx - centrox;
+                    freno = freno / velocidadx;
+                    freno = 1 - freno;
+                    System.out.println("Puesto freno");
                 }
-            
-             if(mediacircunferencia && !circunferenciacompleta)
-             {
-                   if(puntox+velocidadx >= centrox)
-                        {
-                              freno = puntox+velocidadx-centrox;
-                              freno = freno/velocidadx;
-                              freno = 1- freno;
-                              System.out.println("Puesto freno");
-                        }
-             }
+            }
+
+            if (mediacircunferencia && !circunferenciacompleta) {
+                if (puntox + velocidadx >= centrox) {
+                    freno = puntox + velocidadx - centrox;
+                    freno = freno / velocidadx;
+                    freno = 1 - freno;
+                    System.out.println("Puesto freno");
+                }
+            }
             if (iniciay) {
                 if (puntoy > centroy) {
-                    if(freno>0)
-                    {
-                        velocidady -= ((puntoy - centroy) / 10000000000000.0)*freno;
-                    }
-                    else
-                    {
-                        velocidady -= ((puntoy - centroy) / 10000000000000.0);
-                    }
+                   
+                        if (freno > 0) {
+                            velocidady -= ((puntoy - centroy) / 10000000000000.0) * freno;
+                        } else {
+                            velocidady -= ((puntoy - centroy) / 10000000000000.0);
+                        }
                     
+
                     if (!puestohaciendo) {
                         haciendo = true;
                         puestohaciendo = true;
                     }
                 } else if (puntoy < centroy) {
-                    if(freno>0)
-                    {
-                        velocidady += ((centroy - puntoy) / 10000000000000.0)*freno;
-                    }
-                    else
-                    {
-                        velocidady += ((centroy - puntoy) / 10000000000000.0);
-                    }
-                    
+               
+                        if (freno > 0) {
+                            velocidady += ((centroy - puntoy) / 10000000000000.0) * freno;
+                        } else {
+                            velocidady += ((centroy - puntoy) / 10000000000000.0);
+                        }
                 } else {
 
                 }
+              
+                    if (freno > 0) {
+                        recorrido += Math.sqrt(Math.pow(velocidadx * freno, 2) + Math.pow(velocidady * freno, 2));
+                    } else {
+                        recorrido += Math.sqrt(Math.pow(velocidadx, 2) + Math.pow(velocidady, 2));
+                    }
                 
-                if(freno>0)
-                {
-                    recorrido += Math.sqrt(Math.pow(velocidadx*freno, 2) + Math.pow(velocidady*freno, 2));
-                }
-                else
-                {
-                    recorrido += Math.sqrt(Math.pow(velocidadx, 2) + Math.pow(velocidady, 2));
-                }
-                        
-            }
 
-            if(freno>0)
-            {        
-                puntox += velocidadx*freno;
-                puntoy += velocidady*freno;
-                freno=0;
-            }
-            else
-            {
-                puntox+=velocidadx;
-                puntoy += velocidady;
             }
             
-            
+           
+                if (freno > 0) {
+                    puntox += velocidadx * freno;
+                    puntoy += velocidady * freno;
+                    freno=0;
+                } else {
+                    puntox += velocidadx;
+                    puntoy += velocidady;
+                }
+         
+
             if (iniciay) {
 
                 listax.add(puntox);
@@ -356,7 +324,7 @@ public class Pi {
         } while (!sal);
 
         for (cont = 0; cont < listax.size(); cont++) {
-            imagen.setRGB(listax.get(cont).intValue()/1000, listay.get(cont).intValue()/1000, color);
+            imagen.setRGB(listax.get(cont).intValue() / 1000, listay.get(cont).intValue() / 1000, color);
         }
     }
 
