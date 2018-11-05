@@ -4,9 +4,9 @@ Método que he inventado para trazar círculos perfectos simulando dos ejes con 
 No se si este algoritmo ya existía o he descubierto algo. El pi calculado se acerca mucho.
 
 El programa empieza simulando un objeto al lado de un centro de atracción que lo atrae y le confiere velocidad.
-La gravedad aumenta al alejarse del centro de atracción y disminuye llegando a 0 en el centro. (El centro lo atraviesa) (A la inversa que en la gravedad 3d del mundo real.) Es el movimiento de una órbita descompuesto en una dimensión.
+La gravedad aumenta al alejarse del centro de atracción y disminuye llegando a 0 en el centro. (A la inversa que en la gravedad 3d del mundo real.)  Es el movimiento de una órbita descompuesto en una dimensión.
 
-El resultado es que el objeto oscila de lado a lado como si fuera un péndulo.
+El resultado es que el objeto oscila de lado a lado como si fuera un péndulo eterno. El centro lo atraviesa y llega hasta una distancia igual al radio y repite el movimiento.
 
 Al llegar al punto medio del movimiento, punto creo es el de máxima velocidad se inicia otro movimiento de una dimensión idéntico para el eje y.
 
@@ -25,3 +25,5 @@ El pi obtenido contiene muchas cifras del que nos dice la ciencia:
 Para obtener pi he obtenido en cada ciclo de ejecución o momento de tiempo la velocidad x y la velocidad y aplicándoles el teorema de pitágoras para obtener la velocidad real en dos dimensiones. De esta forma calculo la distancia recorrida.
 
 Para llegar a más decimales se necesitarían una resolución y un tiempo de ejecución muy altos.
+
+Es curioso que sumando velocidades por instantes de tiempo se logre la conservación de la energía.
