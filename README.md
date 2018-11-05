@@ -3,6 +3,14 @@ Cálculo de los primeros decimales de Pi con varios métodos y también con un m
 Método que he inventado para trazar círculos perfectos simulando dos ejes con gravedad.
 No se si este algoritmo ya existía o he descubierto algo. El pi calculado se acerca mucho.
 
+El programa empieza simulando un objeto al lado de un centro de atracción que lo atrae.
+La gravedad aumenta al alejarse del centro y disminuye llegando a 0 en el centro.
+El resultado es que el objeto oscila de lado a lado como si fuera un péndulo.
+
+Al llegar al punto medio del movimiento, punto de máxima velocidad se inicia otro movimiento de una dimensión idéntico para el eje y.
+
+Con las coordenadas x e y se obtiene un círculo.
+
 He logrado ajustar las componentes vertical y horizontal a la perfección manipulando el tiempo, aplicando un freno a las fuerzas para ello.
 
 He aumentado la resolución mucho para que se acerque a pi. Suma unidades de 0,0000000000001 y la pantalla mide más de 1 millón.
