@@ -243,14 +243,30 @@ public class Pi {
             
             
             if (puntox > centrox) {
-                velocidadx -= (puntox - centrox) / 10000000000000.0;    
+                if(freno>0)
+                {
+                    velocidadx -= ((puntox - centrox) / 10000000000000.0)*freno;    
+                }
+                else
+                {
+                    velocidadx -= ((puntox - centrox) / 10000000000000.0);    
+                }
+                
                 if (!puestohaciendo) {
                     haciendo = true;
                     puestohaciendo = true;
                 }
 
             } else if (puntox < centrox) {
-                velocidadx += (centrox - puntox) / 10000000000000.0;
+                if(freno>0)
+                {
+                    velocidadx += ((centrox - puntox) / 10000000000000.0)*freno;
+                }
+                else
+                {
+                    velocidadx += ((centrox - puntox) / 10000000000000.0);
+                }
+                
             } else {
                 haciendo = true;
                 puestohaciendo = true;
@@ -279,13 +295,29 @@ public class Pi {
              }
             if (iniciay) {
                 if (puntoy > centroy) {
-                    velocidady -= (puntoy - centroy) / 10000000000000.0;
+                    if(freno>0)
+                    {
+                        velocidady -= ((puntoy - centroy) / 10000000000000.0)*freno;
+                    }
+                    else
+                    {
+                        velocidady -= ((puntoy - centroy) / 10000000000000.0);
+                    }
+                    
                     if (!puestohaciendo) {
                         haciendo = true;
                         puestohaciendo = true;
                     }
                 } else if (puntoy < centroy) {
-                    velocidady += (centroy - puntoy) / 10000000000000.0;
+                    if(freno>0)
+                    {
+                        velocidady += ((centroy - puntoy) / 10000000000000.0)*freno;
+                    }
+                    else
+                    {
+                        velocidady += ((centroy - puntoy) / 10000000000000.0);
+                    }
+                    
                 } else {
 
                 }
@@ -330,8 +362,8 @@ public class Pi {
 
     private static void creaimagen() {
         try {
-            int alto = 1080;
-            int ancho = 1920;
+            int alto = 2160;
+            int ancho = 3840;
             int r, g, b;
             r = 0;
             g = 0;
@@ -340,7 +372,7 @@ public class Pi {
             pintablanco(imagen, alto, ancho);
             //pintalineas(imagen,alto,ancho);
             int color = (255 << 24) | (0 << 16) | (0 << 8) | 0;
-            for (int cont = 400; cont >= 400; cont -= 1) {
+            for (int cont = 1000; cont >= 1000; cont -= 1) {
                 color = (255 << 24) | (r << 16) | (g << 8) | b;
                 if (r < 255) {
                     r += 1;
