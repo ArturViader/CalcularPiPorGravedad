@@ -133,6 +133,12 @@ public class Pi {
         gravedadx = 1;
         gravedady = 1;
 
+        
+        ancho = ancho * 1000;
+        alto = alto * 1000;
+        radiox = radiox * 1000;
+        radioy = radioy *1000;
+        
         centrox = alto / 2;
         centroy = ancho / 2;
 
@@ -154,15 +160,28 @@ public class Pi {
         double piantiguo;
         medio = 0;
         double recorrido = 0;
+        double freno=0;
         int vueltas=0;
         piantiguo=0;
         do {
+            
             if (!iniciay) {
+                
+                
+                
+                
+                
                 if (puntox >= centrox) {
+                      if(puntox==centrox)
+                      {
+                          System.out.println("Clavado");
+                          System.out.println("Centrox " + centrox + "Puntox " + puntox + "Puntoy "+ puntoy);
+                      }
                     iniciay = true;
+                    System.out.println("Puntox " + puntox + " Centrox " + centrox);
                     listax.add(puntox);
                     listay.add(puntoy);
-                }
+                }          
             } else {
                 if (!mediacircunferencia) {
                     if (puntox <= centrox) {
@@ -170,11 +189,17 @@ public class Pi {
                         circunferenciacompleta=false;
                      /*   System.out.println("El recorrido es" + recorrido);
                         System.out.println("Pi es " + ((recorrido / (2 * radiox))) * 2);*/
+                    
 
                     }
                 } else {
-                    if (!circunferenciacompleta) {
+                    if (!circunferenciacompleta) {                       
                         if (puntox >= centrox) {
+                            if(puntox==centrox)
+                            {
+                                System.out.println("Clavado pi");
+                              
+                            }
                             vueltas++;
                           circunferenciacompleta=true;
                           mediacircunferencia = false;
@@ -182,7 +207,8 @@ public class Pi {
                             
                             
                             pi= (((recorrido/vueltas) / (2 * radiox)));
-                            if(cuentavueltas<200)
+                            System.out.println(pi);
+                            if(cuentavueltas<0)
                             {
                                 cuentavueltas++;
                             }
@@ -206,42 +232,88 @@ public class Pi {
                             }*/
                             
                         }
+                      
                     }
 
                 }
 
             }
+            
+            
+            
+            
             if (puntox > centrox) {
-                velocidadx -= (puntox - centrox) / 1000000000;
+                velocidadx -= (puntox - centrox) / 10000000000000.0;    
                 if (!puestohaciendo) {
                     haciendo = true;
                     puestohaciendo = true;
                 }
 
             } else if (puntox < centrox) {
-                velocidadx += (centrox - puntox) / 1000000000;
+                velocidadx += (centrox - puntox) / 10000000000000.0;
             } else {
                 haciendo = true;
                 puestohaciendo = true;
             }
 
+             if(!iniciay)
+                {
+                    if(puntox+velocidadx>centrox)
+                    {
+                        freno = puntox+velocidadx-centrox;
+                        freno = freno/velocidadx;
+                        freno = 1- freno;
+                        System.out.println("Puesto freno");
+                    }
+                }
+            
+             if(mediacircunferencia && !circunferenciacompleta)
+             {
+                   if(puntox+velocidadx >= centrox)
+                        {
+                              freno = puntox+velocidadx-centrox;
+                              freno = freno/velocidadx;
+                              freno = 1- freno;
+                              System.out.println("Puesto freno");
+                        }
+             }
             if (iniciay) {
                 if (puntoy > centroy) {
-                    velocidady -= (puntoy - centroy) / 1000000000;
+                    velocidady -= (puntoy - centroy) / 10000000000000.0;
                     if (!puestohaciendo) {
                         haciendo = true;
                         puestohaciendo = true;
                     }
                 } else if (puntoy < centroy) {
-                    velocidady += (centroy - puntoy) / 1000000000;
+                    velocidady += (centroy - puntoy) / 10000000000000.0;
                 } else {
 
                 }
-                recorrido += Math.sqrt(Math.pow(velocidadx, 2) + Math.pow(velocidady, 2));
+                
+                if(freno>0)
+                {
+                    recorrido += Math.sqrt(Math.pow(velocidadx*freno, 2) + Math.pow(velocidady*freno, 2));
+                }
+                else
+                {
+                    recorrido += Math.sqrt(Math.pow(velocidadx, 2) + Math.pow(velocidady, 2));
+                }
+                        
             }
 
-            puntox += velocidadx;
-            puntoy += velocidady;
+            if(freno>0)
+            {        
+                puntox += velocidadx*freno;
+                puntoy += velocidady*freno;
+                freno=0;
+            }
+            else
+            {
+                puntox+=velocidadx;
+                puntoy += velocidady;
+            }
+            
+            
             if (iniciay) {
 
                 listax.add(puntox);
@@ -252,7 +324,7 @@ public class Pi {
         } while (!sal);
 
         for (cont = 0; cont < listax.size(); cont++) {
-            imagen.setRGB(listax.get(cont).intValue(), listay.get(cont).intValue(), color);
+            imagen.setRGB(listax.get(cont).intValue()/1000, listay.get(cont).intValue()/1000, color);
         }
     }
 
