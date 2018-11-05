@@ -10,4 +10,4 @@ La imagen 1080p solo representa una pequeña parte de esa inmensa resolución.
 
 El pi obtenido contiene muchas cifras del que nos dice la ciencia:
 3.1415926535
-Para llegar a más decimales se necesitaría una resolución y tiempo de ejecución muy alto.
+Para llegar a más decimales se necesitarían una resolución y un tiempo de ejecución muy altos.
