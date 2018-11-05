@@ -35,5 +35,5 @@ Para llegar a más decimales se necesitarían una resolución y un tiempo de eje
 
 Es curioso que sumando velocidades por instantes de tiempo se logre la conservación de la energía. El objeto soltado en un lado del círculo, llega hasta el otro lado y vuelve. Y con dos de estos movimientos sincronizados se ha creado un círculo perfecto.
 
-Si se modifican las fuerzas en uno de los ejes variando así el periodo se logran las curvas de Lissajous
+Si se modifican las fuerzas en uno de los ejes variando así el periodo se logran las curvas de Lissajous, conocidas por poderse mostrar en osciloscopios.
 
