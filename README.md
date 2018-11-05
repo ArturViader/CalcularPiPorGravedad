@@ -37,3 +37,4 @@ Es curioso que sumando velocidades por instantes de tiempo se logre la conservac
 
 Si se modifican las fuerzas en uno de los ejes variando así el periodo se logran las curvas de Lissajous, conocidas por poderse mostrar en osciloscopios.
 
+Creo que también se podría utilizar este concepto para crear ondas sinuidales, sin utilizar seno ni coseno. Últil para generar audio.
