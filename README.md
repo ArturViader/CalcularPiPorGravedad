@@ -2,7 +2,8 @@
 Cálculo de los primeros decimales de Pi con varios métodos y también con un método propio gravitatorio
 Método que he inventado para trazar círculos perfectos simulando dos ejes con gravedad.
 No se si este algoritmo ya existía o he descubierto algo. El pi calculado se acerca mucho.
-3.1415926535
+3.14159265358
+Nada menos que 11 cifras. Trazando un círculo por atraccion gravitatoria y midiéndolo.
 
 El círculo que dibuja este programa es la trayectoria que ha seguido un objeto simulado alrededor de un centro de gravedad. Una órbita. 
 
