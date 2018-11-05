@@ -18,4 +18,7 @@ La imagen 1080p solo representa una pequeña parte de esa inmensa resolución.
 
 El pi obtenido contiene muchas cifras del que nos dice la ciencia:
 3.1415926535
+
+Para obtener pi he obtenido en cada ciclo de ejecución o momento de tiempo la velocidad x y la velocidad y aplicándoles el teorema de pitágoras para obtener la velocidad real en dos dimensiones. De esta forma calculo la distancia recorrida.
+
 Para llegar a más decimales se necesitarían una resolución y un tiempo de ejecución muy altos.
