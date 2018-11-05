@@ -6,6 +6,8 @@ No se si este algoritmo ya existía o he descubierto algo. El pi calculado se ac
 El programa empieza simulando un objeto al lado de un centro de atracción que lo atrae y le confiere aceleración.
 La fuerza de atracción se suma a la velocidad en cada ciclo de ejecución o instante de tiempo.
 
+El círculo que dibuja este programa es una trayectoria.
+
 La gravedad aumenta al alejarse del centro de atracción y disminuye llegando a 0 en el centro. (A la inversa que en la gravedad 3d del mundo real.)  Es el movimiento de una órbita descompuesto en una dimensión.
 
 El resultado es que el objeto oscila de lado a lado como si fuera un péndulo eterno. El centro lo atraviesa y llega hasta una distancia igual al radio y repite el movimiento.
