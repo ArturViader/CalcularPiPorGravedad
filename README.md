@@ -15,7 +15,6 @@ He logrado ajustar las componentes vertical y horizontal a la perfección manipu
 
 He aumentado la resolución mucho para que se acerque a pi. Suma unidades de 0,0000000000001 y la pantalla mide más de 1 millón.
 La imagen 1080p solo representa una pequeña parte de esa inmensa resolución.
-Cambiando a 4k se logra un decimal más.
 
 El pi obtenido contiene muchas cifras del que nos dice la ciencia:
 3.1415926535
